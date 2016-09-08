@@ -96,7 +96,10 @@ addpath(genpath([<path_to_caffe_root> ‘/matlab’]));
 
 ## Download models
 
-scripts/download_model_binary.py <dirname> where <dirname> is specified below:
+```
+scripts/download_model_binary.py <dirname> 
+```
+where <dirname> is specified below:
 
 BVLC Reference CaffeNet in models/bvlc_reference_caffenet: AlexNet trained on ILSVRC 2012, with a minor variation from the version as described in ImageNet classification with deep convolutional neural networks by Krizhevsky et al. in NIPS 2012. (Trained by Jeff Donahue @jeffdonahue)
 
@@ -105,3 +108,5 @@ BVLC AlexNet in models/bvlc_alexnet: AlexNet trained on ILSVRC 2012, almost exac
 BVLC Reference R-CNN ILSVRC-2013 in models/bvlc_reference_rcnn_ilsvrc13: pure Caffe implementation of R-CNN as described by Girshick et al. in CVPR 2014. (Trained by Ross Girshick @rbgirshick)
 
 BVLC GoogLeNet in models/bvlc_googlenet: GoogLeNet trained on ILSVRC 2012, almost exactly as described in Going Deeper with Convolutions by Szegedy et al. in ILSVRC 2014. (Trained by Sergio Guadarrama @sguada)
+
+You can find more models in Caffe Model Zoo (https://github.com/BVLC/caffe/wiki/Model-Zoo).

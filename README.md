@@ -1,7 +1,7 @@
 # Caffe Compilation
 This manuscript describes how to compile Caffe on Ubuntu.
 
-Created by Jingming Dong (12/10/2015).
+Created by [Jingming Dong](http://vision.ucla.edu/~jingming/) (12/10/2015).
 
 ## Tested Platform
 Ubuntu 14.04.3 LTS (3.19.0-25-generic)

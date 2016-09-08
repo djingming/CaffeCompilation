@@ -99,7 +99,7 @@ addpath(genpath([<path_to_caffe_root> ‘/matlab’]));
 ```
 scripts/download_model_binary.py <dirname> 
 ```
-where <dirname> is specified below:
+where `<dirname>` is specified below:
 
 BVLC Reference CaffeNet in models/bvlc_reference_caffenet: AlexNet trained on ILSVRC 2012, with a minor variation from the version as described in ImageNet classification with deep convolutional neural networks by Krizhevsky et al. in NIPS 2012. (Trained by Jeff Donahue @jeffdonahue)
 

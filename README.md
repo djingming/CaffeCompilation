@@ -22,7 +22,7 @@ Install the latest GPU driver again as recommend by Caffe instruction.
 (Note that sometimes the latest driver crashes Ubuntu, then use the one that comes with the cuda installer.)
 
 ### cuDNN:
-Download from https://developer.nvidia.com/cudnn and copy to system library path as mentioned later.
+Download from https://developer.nvidia.com/cudnn and set up include/library path as mentioned later.
 
 ### Prerequisites installed from terminal:
 
@@ -40,27 +40,23 @@ Search and install python-numpy, python-scipy, python-yaml
 ### Set up Bash:
 ```
 export PATH=/usr/local/MATLAB/R2015b/bin:/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:/usr/local/cudnn/lib:$LD_LIBRARY_PATH
 export CUBLAS_PATH=/usr/local/cuda/lib64
-export CUDNN_PATH=/usr/local/cudnn
+export CUDNN_PATH=/usr/local/cudnn/include
 export PYTHONPATH=/path/to/caffe/python:$PYTHONPATH
 ```
 
-### Copy cudnn.h to /usr/local/include, and cudnn libraries to /usr/local/lib and /usr/lib
+### Set up cuDNN
+Put cudnn.h to `cuDNN_ROOT/include`, and cudnn libraries to `cuDNN_ROOT/lib`, where `cuDNN_ROOT` can be any folder you prefer.
+Edit Makefile.config to include these paths.
 ```
-sudo cp /usr/local/cudnn/cudnn.h /usr/local/include
-sudo cp /usr/local/cudnn/libcudnn.so /usr/local/lib
-sudo cp /usr/local/cudnn/libcudnn.so.7.0 /usr/local/lib
-sudo cp /usr/local/cudnn/libcudnn.so.7.0.64 /usr/local/lib
-sudo cp /usr/local/cudnn/libcudnn_static.a /usr/local/lib
-sudo cp /usr/local/cudnn/libcudnn.so /usr/lib
-sudo cp /usr/local/cudnn/libcudnn.so.7.0 /usr/lib
-sudo cp /usr/local/cudnn/libcudnn.so.7.0.64 /usr/lib
-sudo cp /usr/local/cudnn/libcudnn_static.a /usr/lib
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include cuDNN_ROOT/include
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib cuDNN_ROOT/lib
 ```
-(Note /usr/local/cudnn is where I put my cudnn library. Caffe search for default location only.)
-
-(A better solution is needed as modifying /usr/lib is a bad idea.)
+Add library path to `LD_LIBRARY_PATH`
+```
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:cuDNN_ROOT/lib:$LD_LIBRARY_PATH
+```
 
 ## Compilation
 

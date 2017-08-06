@@ -80,6 +80,11 @@ sudo pip install -U scikit-image
 sudo pip install protobuf
 ```
 
+You need to add module to PYTHONPATH
+```
+export PYTHONPATH=<path_to_caffe_root>/python:$PYTHONPATH
+```
+
 ### Matlab interface
 ```
 make matcaffe
